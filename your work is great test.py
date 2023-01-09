@@ -275,36 +275,23 @@ elif num3 == '8':
 else:
     print('입력 값 범위를 초과했습니다.')
     
-tca_com = [tca, com]
+# tca_com = tca + com
 
 n = input("해당 월을 입력해주세요\t:") # 해당 월 입력
 if n == '1':
-    def team(r_tco, r_tc, leave, off):
+    def team(r_tco, r_tca, r_com, leave, off):
         print('-' * 23, ' 1월 ', '-' * 23)  # 1을 입력하면 1월 출력
         day = 1
         while day < 32: # 1월, 1 ~ 31일까지
             r_tco = random.choice(tco)  # TCO 1명 랜덤 추출
-            r_tc = random.sample(tca_com, 2)    # TCA, COM 2명 중복 제외 랜덤 추출
-            print(f'{day}일 : TCO = {r_tco}, TCA/COMMO = {r_tc}')
+            r_tca = random.choice(tca)  # TCA 1명 랜덤 추출
+            r_com = random.choice(com)  # COMMO 1명 랜덤 추출
+            print(f'{day}일 : TCO = {r_tco}, TCA = {r_tca}, COMMO = {r_com}')
             print(f'근무퇴근 : {leave}')
             print(f'근무OFF  : {off}')
             day += 1
         print('-' * 53)
-    team('tco', 'tca/commo', 'leave', 'off')
-    
-elif n == '2':
-    def team(r_tco, r_tc, leave, off):
-        print('-' * 23, ' 2월 ', '-' * 23)
-        day = 1
-        while day < 28: # 2월, 1 ~ 28일까지(또는 29일), 평년 윤년 구분 필요
-            r_tco = random.choice(tco)
-            r_tc = random.sample(tca_com, 2)
-            print(f'{day}일 : TCO = {r_tco}, TCA/COMMO = {r_tc}')
-            print(f'근무퇴근 : {leave}')
-            print(f'근무OFF  : {off}')
-            day += 1
-        print('-' * 53)
-    team('tco', 'tca/commo', 'leave', 'off')
+    team('tco', 'tca', 'com', 'leave', 'off')
     
 #   1. 해당 월을 입력함
 #       -> 몇 월인지 입력해주세요.
@@ -316,4 +303,4 @@ elif n == '2':
 #   5. 입력한 값에 맞게끔 근무자의 근무퇴근 및 OFF 조정
 #   !. 해당 날짜에 근무가 안 되는 조원도 고려해서 조정 가능?
     
-# 22.11.13 -내용 수정-
+# 23.1.9 -내용 수정-

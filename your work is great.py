@@ -8,40 +8,46 @@
 import random
 
 tco = ['이원찬', '조성원', '정민서', '박선빈']
-tca_com = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
+tca = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
+com = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
 
 # 당일 근무자는 다음 날 근무자가 될 수 없다 
 
 n = input("해당 월을 입력해주세요\t:") # 해당 월 입력
 if n == '1':
-    def team(r_tco, r_tc, leave, off):
+    def team(r_tco, r_tca, r_com, leave, off):
         print('-' * 23, ' 1월 ', '-' * 23)  # 1을 입력하면 1월 출력
         day = 1
         while day < 32: # 1월, 1 ~ 31일까지
             r_tco = random.choice(tco)  # TCO 1명 랜덤 추출
-            r_tc = random.sample(tca_com, 2)    # TCA, COM 2명 중복 제외 랜덤 추출
-            print(f'{day}일 : TCO = {r_tco}, TCA/COMMO = {r_tc}')
+            r_tca = random.choice(tca)   # TCA 1명 랜덤 추출
+            r_com = random.choice(com)   # TCA 1명 랜덤 추출
+            if r_tca == r_com: # tca와 commo가 같으면 다시 랜덤
+                r_tco = random.choice(tco)
+                r_tca = random.choice(tca)
+                r_com = random.choice(com)
+            print(f'{day}일 : TCO = {r_tco}, TCA = {r_tca}, COMMO = {r_com}')
             print(f'근무퇴근 : {leave}')
             print(f'근무OFF  : {off}')
             day += 1
         print('-' * 53)
-    team('tco', 'tca/commo', 'leave', 'off')
+    team('tco', 'tca', 'com', 'leave', 'off')
     
 # 이 코드를 n월을 입력하면 m일도 자동으로 변경되어 m일에 맞게끔 변경하면?
     
-elif n == '2':
-    def team(r_tco, r_tc, leave, off):
-        print('-' * 23, ' 2월 ', '-' * 23)
-        day = 1
-        while day < 28: # 2월, 1 ~ 28일까지(또는 29일), 평년 윤년 구분 필요
-            r_tco = random.choice(tco)
-            r_tc = random.sample(tca_com, 2)
-            print(f'{day}일 : TCO = {r_tco}, TCA/COMMO = {r_tc}')
-            print(f'근무퇴근 : {leave}')
-            print(f'근무OFF  : {off}')
-            day += 1
-        print('-' * 53)
-    team('tco', 'tca/commo', 'leave', 'off')
+# elif n == '2':
+#     def team(r_tco, r_tc, leave, off):
+#         print('-' * 23, ' 2월 ', '-' * 23)
+#         day = 1
+#         while day < 28: # 2월, 1 ~ 28일까지(또는 29일), 평년 윤년 구분 필요
+#             r_tco = random.choice(tco)
+#             r_tc = random.sample(tca_com, 2)
+#             print(f'{day}일 : TCO = {r_tco}, TCA/COMMO = {r_tc}')
+#             print(f'근무퇴근 : {leave}')
+#             print(f'근무OFF  : {off}')
+#             day += 1
+#         print('-' * 53)
+#     team('tco', 'tca/commo', 'leave', 'off')
     
 #   1. 해당 월을 입력함
 #       -> 몇 월인지 입력해주세요.
