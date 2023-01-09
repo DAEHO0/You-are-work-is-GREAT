@@ -6,35 +6,43 @@ com = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대�
 
 n = input("해당 월을 입력해주세요\t:") # 해당 월 입력
 if n == '1':
-    print("CODE를 입력해주세요")
-    for i in range(1, 32):
-        cod = input(f'{i}일 = ') # 잘못 입력하면 다시 입력할 수 있게끔 작성 필요
-        if cod == '5':
-            print(f'{i}일의 CODE는 5M 입니다.')
-        elif cod == '15':
-            print(f'{i}일의 CODE는 15M 입니다.')
-        elif cod == '30':
-            print(f'{i}일의 CODE는 30M 입니다.')
-        elif cod == '1':
-            print(f'{i}일의 CODE는 1H 입니다.')
-        elif cod == 't':
-            print(f'{i}일의 CODE는 Training 입니다.')
-        elif cod == 'c':
-            print(f'{i}일의 CODE는 Clear 입니다.')
-        elif cod == 'w':
-            print(f'{i}일의 CODE는 Week 입니다.')
-        elif cod == 'm':
-            print(f'{i}일의 CODE는 Month 입니다.')
-        elif cod == 'q':
-            print(f'{i}일의 CODE는 Quarter 입니다.')
-        elif cod == 'h':
-            print(f'{i}일의 CODE는 Half 입니다.')
-        elif cod == 'y':
-            print(f'{i}일의 CODE는 Year 입니다.')
-        else:
-            print("잘못 입력하셨습니다.")
-            
     def team(r_tco, r_tca, r_com, leave, off):
+        day = 1
+        print("-" * 25, "비상대기", "-" * 25)
+        print("5M = 5, 15M = 15, 30M = 30, 1H = 1, Training = t, Clear = c")
+        print("Week = w, Month = m, Quarter = q, Half = h, Year = y")
+        print("")
+        print("예시: 1일 날 5M이면 '5' 입력, 10일 날 Training이면 't' 입력")
+        print("-" * 60)
+        print("CODE를 입력해주세요")
+    
+        for day in range(1, 32):
+            cod = input(f'{day}일 = ') # 잘못 입력하면 다시 입력할 수 있게끔 작성 필요
+            if cod == '5':
+                print(f'{day}일의 CODE는 5M 입니다.')
+            elif cod == '15':
+                print(f'{day}일의 CODE는 15M 입니다.')
+            elif cod == '30':
+                print(f'{day}일의 CODE는 30M 입니다.')
+            elif cod == '1':
+                print(f'{day}일의 CODE는 1H 입니다.')
+            elif cod == 't':
+                print(f'{day}일의 CODE는 Training 입니다.')
+            elif cod == 'c':
+                print(f'{day}일의 CODE는 Clear 입니다.')
+            elif cod == 'w':
+                print(f'{day}일의 CODE는 Week 입니다.')
+            elif cod == 'm':
+                print(f'{day}일의 CODE는 Month 입니다.')
+            elif cod == 'q':
+                print(f'{day}일의 CODE는 Quarter 입니다.')
+            elif cod == 'h':
+                print(f'{day}일의 CODE는 Half 입니다.')
+            elif cod == 'y':
+                print(f'{day}일의 CODE는 Year 입니다.')
+            else:
+                print("잘못 입력하셨습니다.")
+        
         print('-' * 23, ' 1월 ', '-' * 23)  # 1을 입력하면 1월 출력
         day = 1
         while day < 32: # 1월, 1 ~ 31일까지
@@ -45,6 +53,9 @@ if n == '1':
                 r_tco = random.choice(tco)
                 r_tca = random.choice(tca)
                 r_com = random.choice(com)
+                
+# 여기에 근무퇴근, 근무OFF 변수 추가
+
             print(f'{day}일 : TCO = {r_tco}, TCA = {r_tca}, COMMO = {r_com}')
             print(f'근무퇴근 : {leave}')
             print(f'근무OFF  : {off}')

@@ -286,6 +286,10 @@ if n == '1':
             r_tco = random.choice(tco)  # TCO 1명 랜덤 추출
             r_tca = random.choice(tca)  # TCA 1명 랜덤 추출
             r_com = random.choice(com)  # COMMO 1명 랜덤 추출
+            if r_tca == r_com: # tca와 commo가 같으면 다시 랜덤
+                r_tco = random.choice(tco)
+                r_tca = random.choice(tca)
+                r_com = random.choice(com)
             print(f'{day}일 : TCO = {r_tco}, TCA = {r_tca}, COMMO = {r_com}')
             print(f'근무퇴근 : {leave}')
             print(f'근무OFF  : {off}')
