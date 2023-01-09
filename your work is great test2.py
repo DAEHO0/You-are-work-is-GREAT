@@ -1,0 +1,65 @@
+import random
+
+tco = ['이원찬', '조성원', '정민서', '박선빈']
+tca = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
+com = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
+
+n = input("해당 월을 입력해주세요\t:") # 해당 월 입력
+if n == '1':
+    print("CODE를 입력해주세요")
+    for i in range(1, 32):
+        cod = input(f'{i}일 = ') # 잘못 입력하면 다시 입력할 수 있게끔 작성 필요
+        if cod == '5':
+            print(f'{i}일의 CODE는 5M 입니다.')
+        elif cod == '15':
+            print(f'{i}일의 CODE는 15M 입니다.')
+        elif cod == '30':
+            print(f'{i}일의 CODE는 30M 입니다.')
+        elif cod == '1':
+            print(f'{i}일의 CODE는 1H 입니다.')
+        elif cod == 't':
+            print(f'{i}일의 CODE는 Training 입니다.')
+        elif cod == 'c':
+            print(f'{i}일의 CODE는 Clear 입니다.')
+        elif cod == 'w':
+            print(f'{i}일의 CODE는 Week 입니다.')
+        elif cod == 'm':
+            print(f'{i}일의 CODE는 Month 입니다.')
+        elif cod == 'q':
+            print(f'{i}일의 CODE는 Quarter 입니다.')
+        elif cod == 'h':
+            print(f'{i}일의 CODE는 Half 입니다.')
+        elif cod == 'y':
+            print(f'{i}일의 CODE는 Year 입니다.')
+        else:
+            print("잘못 입력하셨습니다.")
+            
+    def team(r_tco, r_tca, r_com, leave, off):
+        print('-' * 23, ' 1월 ', '-' * 23)  # 1을 입력하면 1월 출력
+        day = 1
+        while day < 32: # 1월, 1 ~ 31일까지
+            r_tco = random.choice(tco)  # TCO 1명 랜덤 추출
+            r_tca = random.choice(tca)  # TCA 1명 랜덤 추출
+            r_com = random.choice(com)  # COMMO 1명 랜덤 추출
+            if r_tca == r_com: # tca와 commo가 같으면 다시 랜덤
+                r_tco = random.choice(tco)
+                r_tca = random.choice(tca)
+                r_com = random.choice(com)
+            print(f'{day}일 : TCO = {r_tco}, TCA = {r_tca}, COMMO = {r_com}')
+            print(f'근무퇴근 : {leave}')
+            print(f'근무OFF  : {off}')
+            day += 1
+        print('-' * 53)
+    team('tco', 'tca', 'com', 'leave', 'off')
+    
+#   1. 해당 월을 입력함
+#       -> 몇 월인지 입력해주세요.
+#   2. 사용자가 입력한 숫자대로 해당 월과 날짜 출력
+#   3. code 입력
+#       -> code를 입력해주세요.
+#   4. 공휴일 등을 입력함
+#       -> 휴일을 입력해주세요.
+#   5. 입력한 값에 맞게끔 근무자의 근무퇴근 및 OFF 조정
+#   !. 해당 날짜에 근무가 안 되는 조원도 고려해서 조정 가능?
+    
+# 23.1.9 -내용 수정-
