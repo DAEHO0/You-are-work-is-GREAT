@@ -1,14 +1,14 @@
 import random
 
-tco = ['이원찬', '조성원', '정민서', '박선빈']
-tca = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
-com = ['김동규', '박상준', '방지언', '박진호', '정광렬', '김대호', '한대인']
+tco = ['name', 'name', 'name', 'name']
+tca = ['name', 'name', 'name', 'name', 'name', 'name', 'name']
+com = ['name', 'name', 'name', 'name', 'name', 'name', 'name']
 
 n = input("해당 월을 입력해주세요\t:") # 해당 월 입력
 if n == '1':
     def team(r_tco, r_tca, r_com, leave, off):
         day = 1
-        print("-" * 25, "비상대기", "-" * 25)
+        print("-" * 25, "ADEMR", "-" * 25)
         print("5M = 5, 15M = 15, 30M = 30, 1H = 1, Training = t, Clear = c")
         print("Week = w, Month = m, Quarter = q, Half = h, Year = y")
         print("")
