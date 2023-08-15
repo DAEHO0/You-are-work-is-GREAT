@@ -2,7 +2,7 @@
 # 프로그램 상으론 어느 요일이 몇 일인지 알 수 없음 -> 날짜 구분 프로그램 필요
 # 1월 이면 어느 날짜가 어느 요일인지 알아야 함 -> 그래야 근무퇴근 및 off 조정 가능
 
-print("-" * 25, "비상대기", "-" * 25)
+print("-" * 25, "ADEMR", "-" * 25)
 print("5M = 5, 15M = 15, 30M = 30, 1H = 1, Training = t, Clear = c")
 print("Week = w, Month = m, Quarter = q, Half = h, Year = y")
 print("")
